@@ -1,0 +1,28 @@
+name: Build & Test Codebase
+
+on: 
+  push:
+    branches:
+      - 'feature/*'
+      - 'bugfix/*'
+      - 'hotfix/*'
+    paths-ignore:
+      - '**.md'  # Ignore changes in Markdown files
+  pull_request:
+    branches:
+      - master
+      - main
+      - 'release/*'
+
+jobs:
+  branch-check:
+    name: Branch Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4 
+
+      - name: Create a Link
+        run: |
+          pwd
+          node --version
