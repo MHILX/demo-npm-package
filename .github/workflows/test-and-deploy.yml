@@ -40,5 +40,21 @@ jobs:
           ls -la
           node --version
           npm link
-          
+    
+  deploy-dev:
+    name: Deploy to Dev
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Dev
+        run: |
+          echo deploying to dev...        
 
+  publish:
+    name: Publish to NPM Repo
+    needs: [test, deploy-dev]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Buildd Package
+        run: |
+          echo building package...
