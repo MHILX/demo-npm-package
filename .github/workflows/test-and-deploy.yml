@@ -1,4 +1,4 @@
-name: Build & Test Codebase
+name: Test & Deploy Codebase
 
 on: 
   push:
@@ -16,14 +16,26 @@ on:
       - 'release/*'
 
 jobs:
-  branch-check:
+  test:
     name: Branch Check
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4 
 
-      - name: Create a Link
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        run: npm ci
+
+      # Add npm link step here
+      - name: NPM Link Package
         run: |
           pwd
+          ls -la
           node --version
+          
+
