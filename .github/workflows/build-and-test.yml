@@ -3,6 +3,7 @@ name: Build & Test Codebase
 on: 
   push:
     branches:
+      - main
       - 'feature/*'
       - 'bugfix/*'
       - 'hotfix/*'
