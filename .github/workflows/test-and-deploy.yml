@@ -34,8 +34,10 @@ jobs:
       # Add npm link step here
       - name: NPM Link Package
         run: |
+          cat /etc/os-release
           pwd
           ls -la
           node --version
+          npm link
           
 
