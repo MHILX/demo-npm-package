@@ -35,6 +35,7 @@ jobs:
       - name: NPM Link Package
         run: |
           cat /etc/os-release
+          docker -v
           pwd
           ls -la
           node --version
